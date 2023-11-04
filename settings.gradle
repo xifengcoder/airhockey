@@ -1,0 +1,5 @@
+rootProject.name = "OpenGLESForAndroid"
+include ':airhockey1'
+include ':airhockey2'
+include ':airhockey3D'
+include ":airHockeyTextured"
