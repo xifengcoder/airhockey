@@ -132,7 +132,7 @@ public class AirHockeyRenderer implements Renderer {
         Matrix.perspectiveM(projectionMatrix, 0, 60, (float) width / (float) height, 1, 10);
         Matrix.setIdentityM(modelMatrix, 0);
         Matrix.translateM(modelMatrix, 0, 0f, 0f, -2.5f);
-        //Matrix.rotateM(modelMatrix, 0, 30f, 1f, 0f, 0f); //旋转角度逆时针方向为正
+        Matrix.rotateM(modelMatrix, 0, -60f, 1f, 0f, 0f); //旋转角度逆时针方向为正
         Matrix.multiplyMM(mMVPMatrix, 0, projectionMatrix, 0, modelMatrix, 0);
     }
 

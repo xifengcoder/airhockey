@@ -22,6 +22,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView.Renderer;
+import android.opengl.Matrix;
 
 import com.airhockey.android.objects.Mallet;
 import com.airhockey.android.objects.Table;
@@ -71,12 +72,12 @@ public class AirHockeyRenderer implements Renderer {
         MatrixHelper.perspectiveM(projectionMatrix, 45,
                 (float) width / (float) height, 1f, 10f);
 
-        setIdentityM(modelMatrix, 0);
-        translateM(modelMatrix, 0, 0f, 0f, -2.5f);
-        rotateM(modelMatrix, 0, -60f, 1f, 0f, 0f);
+        Matrix.setIdentityM(modelMatrix, 0);
+        Matrix.translateM(modelMatrix, 0, 0f, 0f, -2.5f);
+        Matrix.rotateM(modelMatrix, 0, -60f, 1f, 0f, 0f);
 
         final float[] temp = new float[16];
-        multiplyMM(temp, 0, projectionMatrix, 0, modelMatrix, 0);
+        Matrix.multiplyMM(temp, 0, projectionMatrix, 0, modelMatrix, 0);
         System.arraycopy(temp, 0, projectionMatrix, 0, temp.length);
     }
 
